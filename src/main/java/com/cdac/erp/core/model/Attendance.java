@@ -44,7 +44,7 @@ public class Attendance {
     private LocalDate attendanceDate;
 
     @Column(name = "is_present", nullable = false)
-    private boolean isPresent;
+    private Boolean present; // Changed from boolean to Boolean
 
     @Column(name = "attended_hours", precision = 4, scale = 2)
     private BigDecimal attendedHours;

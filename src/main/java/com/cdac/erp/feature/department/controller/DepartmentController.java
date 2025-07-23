@@ -4,6 +4,9 @@ import com.cdac.erp.core.model.Department;
 import com.cdac.erp.feature.department.dto.DepartmentCreateRequest;
 import com.cdac.erp.feature.department.dto.DepartmentUpdateRequest;
 import com.cdac.erp.feature.department.service.IDepartmentService;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +28,7 @@ public class DepartmentController {
 	private IDepartmentService departmentService;
 
 	@PostMapping
-	public ResponseEntity<Department> createDepartment(@RequestBody DepartmentCreateRequest createRequest) {
+	public ResponseEntity<Department> createDepartment(@Valid @RequestBody DepartmentCreateRequest createRequest) {
 		Department newDepartment = departmentService.createDepartment(createRequest);
 		return new ResponseEntity<>(newDepartment, HttpStatus.CREATED);
 	}
@@ -44,7 +47,7 @@ public class DepartmentController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Department> updateDepartment(@PathVariable Integer id,
-			@RequestBody DepartmentUpdateRequest updateRequest) {
+			@Valid @RequestBody DepartmentUpdateRequest updateRequest) {
 		Department updatedDepartment = departmentService.updateDepartment(id, updateRequest);
 		return ResponseEntity.ok(updatedDepartment);
 	}

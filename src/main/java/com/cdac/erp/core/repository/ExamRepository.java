@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExamRepository extends JpaRepository<Exam, Integer> {
+	//checking if module is associated with others
+	boolean existsByModule_ModuleId(String moduleId);
 }

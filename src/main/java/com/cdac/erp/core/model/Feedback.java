@@ -46,8 +46,11 @@ public class Feedback {
     @Column(name = "comments", nullable = false, columnDefinition = "TEXT")
     private String comments;
 
-    @Column(name = "rating")
-    private Integer rating;
+    @Column(name = "teaching_style_rating")
+    private Integer teachingStyleRating;
+
+    @Column(name = "doubt_clearing_rating")
+    private Integer doubtClearingRating;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "resolved_by_admin_id")
@@ -59,4 +62,8 @@ public class Feedback {
 
     @Column(name = "status", length = 50)
     private String status;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id", nullable = false)
+    private FeedbackSession feedbackSession;
 }

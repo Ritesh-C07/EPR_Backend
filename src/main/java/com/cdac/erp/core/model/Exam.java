@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,8 +35,4 @@ public class Exam {
 
     @Column(name = "exam_date", nullable = false)
     private LocalDate examDate;
-
-    @Column(name = "max_marks", nullable = false, precision = 5, scale = 2)
-    private BigDecimal maxMarks;
-
 }

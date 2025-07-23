@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ModuleRepository extends JpaRepository<Module, String> {
+	long countByDepartment_DepartmentId(Integer departmentId);
 }

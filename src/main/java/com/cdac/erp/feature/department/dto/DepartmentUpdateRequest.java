@@ -1,12 +1,13 @@
 package com.cdac.erp.feature.department.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class DepartmentUpdateRequest {
+
+    @NotBlank(message = "Department name cannot be empty")
     private String departmentName;
 }

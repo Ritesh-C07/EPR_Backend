@@ -10,7 +10,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,7 +38,9 @@ public class Score {
     @JoinColumn(name = "exam_id", nullable = false)
     private Exam exam;
 
-    @Column(name = "marks_obtained", nullable = false, precision = 5, scale = 2)
-    private BigDecimal marksObtained;
+    @Column(name = "lab_exam_marks")
+    private Integer labExamMarks;
 
+    @Column(name = "internal_marks")
+    private Integer internalMarks;
 }
